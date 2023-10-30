@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const { wearhouse } = useSelector((select) => select.dataSlice)
   const navigate=useNavigate()
-  // console.log(wearhouse);
+  console.log(wearhouse);
   const [filterWearHouse, setFilterWearHouse] = useState(wearhouse)
 
 
@@ -59,7 +59,7 @@ const Home = () => {
     <>
       <div className="mainDiv">
         <div className="container-fluid">
-          <div className="header sticky-top bg-white">
+          <div className="header sticky-top ">
             <div className="top d-flex justify-content-between">
               <div className="logo">
                 Wearhouse

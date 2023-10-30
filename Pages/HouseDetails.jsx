@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { MdAccountCircle } from 'react-icons/md'
 import Modal from 'react-bootstrap/Modal';
@@ -7,8 +7,10 @@ import { editDataAction } from '../Store/dataSlice';
 
 const HouseDetails = () => {
   const dispatch=useDispatch()
+  const navigate=useNavigate()
   const { wearhouse } = useSelector((select) => select.dataSlice)
   const [editModal, setEditModal] = useState(false)
+  const [error ,setError] =useState(false)
     const {id}=useParams()
     // console.log(id);
     const houseDetails=wearhouse.filter((item)=>{
@@ -19,11 +21,15 @@ const HouseDetails = () => {
     const handelSubmitDetails=()=>{
       if(SingleHouse.name!=='' && SingleHouse.city!=='' && SingleHouse.cluster!=='' && SingleHouse.space_available!==''){
         console.log(SingleHouse);
-        console.log('hello')
-        
+        // console.log('hello')
+        setEditModal(false)
+        setError(false)
+        dispatch(editDataAction(SingleHouse))
       }
       else{
-        console.log('bye')
+        // console.log('bye')
+        setError(true)
+
       }
     }
   return (
@@ -31,7 +37,7 @@ const HouseDetails = () => {
     <div className="detailsDiv">
       <div className="container-fluid">
       <div className="top d-flex justify-content-between">
-              <div className="logo">
+              <div className="logo" onClick={()=>navigate('/')}>
                 Wearhouse Details
               </div>
               <div className="adminSide">
@@ -75,7 +81,7 @@ const HouseDetails = () => {
     </div>
     <Modal
             show={editModal}
-            size="md"
+            size="lg"
             onHide={() => setEditModal(false)}
             aria-labelledby="contained-modal-title-vcenter"
             centered
@@ -102,19 +108,28 @@ const HouseDetails = () => {
                       />
                     </div>
                     <div className="inputBox">
-                      <label>Space Available :</label> <input type="text" className='inputText' value={SingleHouse && SingleHouse.space_available}
+                      <label>Space Available :</label> <input type="number" className='inputText inputNumber' value={SingleHouse && SingleHouse.space_available}
                       onChange={(e)=>setSingleHouseDetails({...SingleHouse,space_available:e.target.value})}
                       />
                     </div>
                     <div className="inputBox">
-                 <span> Warehouse Live:</span> <div className='radioDiv'><input type="radio" name='live_type' value='true' checked={SingleHouse.is_live?'checked':''}
-                 onChange={(e)=>setSingleHouseDetails({...SingleHouse,is_live:e.target.value})}
-                 /> <label>Yes</label>  <input type="radio" name='live_type' value='false' checked={SingleHouse.is_live?'':'checked'}
-                 onChange={(e)=>setSingleHouseDetails({...SingleHouse,is_live:e.target.value})}
+                 <span> Warehouse Live:</span> <div className='radioDiv'><input type="radio"  value='true' checked={SingleHouse.is_live?'checked':''}
+                 onChange={(e)=>{
+                  setSingleHouseDetails({...SingleHouse,is_live:e.target.value})
+                  console.log({...SingleHouse,is_live:e.target.value});
+                 }}
+                 /> <label>Yes</label>  <input type="radio"  value='false' checked={SingleHouse.is_live?'':'checked'}
+                 onChange={(e)=>{
+                  setSingleHouseDetails({...SingleHouse,is_live:e.target.value})
+                  console.log({...SingleHouse,is_live:e.target.value});
+                 }}
                  /> <label>No</label></div> 
 
                     </div>
                 </div>
+                {
+                  error ? <p>All fields are required...</p> : ''
+                }
                 <div className="submitBtn">
                   <button onClick={handelSubmitDetails}>Submit</button>
                 </div>

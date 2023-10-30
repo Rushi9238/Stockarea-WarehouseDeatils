@@ -155,6 +155,11 @@ const wearhouseData=createSlice({
         },
         editDataAction:(state,action)=>{
           console.log(action.payload);
+        const editIndex=state.wearhouse.findIndex((item)=>{
+            return item.id== action.payload.id
+          })
+          // console.log(editIndex);
+          state.wearhouse[editIndex]=action.payload
         }
         
     }
