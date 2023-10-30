@@ -3,9 +3,13 @@ import { useSelector } from 'react-redux'
 import { MdAccountCircle } from 'react-icons/md'
 import { BiSearch } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import {FaWarehouse} from 'react-icons/fa'
+import {ImLocation2} from 'react-icons/im'
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 const Home = () => {
   const { wearhouse } = useSelector((select) => select.dataSlice)
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   console.log(wearhouse);
   const [filterWearHouse, setFilterWearHouse] = useState(wearhouse)
 
@@ -13,45 +17,45 @@ const Home = () => {
   const handelSearchFilter = (e) => {
     const { name, value } = e.target;
 
-   if (value !== '') {
-    const filterData = wearhouse.filter((ele) => {
-      return ele.name.toLowerCase().includes(value.toLowerCase());
-    })
-    // console.log(filterData);
-    setFilterWearHouse(filterData)
-  }
-  else {
-    setFilterWearHouse(wearhouse)
-  }
-  
+    if (value !== '') {
+      const filterData = wearhouse.filter((ele) => {
+        return ele.name.toLowerCase().includes(value.toLowerCase());
+      })
+      // console.log(filterData);
+      setFilterWearHouse(filterData)
+    }
+    else {
+      setFilterWearHouse(wearhouse)
+    }
+
   }
 
-  const handelChangeCity=(e)=>{
-    const cityName=e.target.value
-    if(cityName !== ' '){
-      const filterData=filterWearHouse.filter((ele)=>{
-        return ele.city== cityName
+  const handelChangeCity = (e) => {
+    const cityName = e.target.value
+    if (cityName !== '') {
+      const filterData = wearhouse.filter((ele) => {
+        return ele.city == cityName
       })
       setFilterWearHouse(filterData)
       console.log(filterData);
 
     }
-    else{
+    else {
       setFilterWearHouse(wearhouse)
     }
   }
 
-  const handelChangeCluster=(e)=>{
-    const clusterName=e.target.value
-    if(clusterName !== ' '){
-      const filterData=filterWearHouse.filter((ele)=>{
-        return ele.cluster== clusterName
+  const handelChangeCluster = (e) => {
+    const clusterName = e.target.value
+    if (clusterName !== ' ') {
+      const filterData = wearhouse.filter((ele) => {
+        return ele.cluster == clusterName
       })
       setFilterWearHouse(filterData)
       // console.log(filterData);
 
     }
-    else{
+    else {
       setFilterWearHouse(wearhouse)
     }
   }
@@ -81,7 +85,7 @@ const Home = () => {
                   <select name="" id="" onChange={handelChangeCity}>
                     <option value=" ">City Name</option>
                     {
-                      Array.from(new Set(filterWearHouse.map(item => item.city))).map((city, index) => {
+                      Array.from(new Set(wearhouse.map(item => item.city))).map((city, index) => {
                         return <option key={index} value={city}>{city}</option>
                       })
                     }
@@ -91,7 +95,7 @@ const Home = () => {
                   <select name="" id="" onChange={handelChangeCluster}>
                     <option value="">Cluster</option>
                     {
-                      Array.from(new Set(filterWearHouse.map(item => item.cluster))).map((cluster, index) => {
+                      Array.from(new Set(wearhouse.map(item => item.cluster))).map((cluster, index) => {
                         return <option key={index} value={cluster}>{cluster}</option>
                       })
                     }
@@ -104,7 +108,7 @@ const Home = () => {
 
           </div>
           <div className="wearhouseList">
-            <table>
+            {/* <table>
               <thead className=''>
                 <tr>
                   <th>
@@ -127,16 +131,42 @@ const Home = () => {
                   })
                 }
 
-                {/* <tr>
-              <td>Warehouse-165</td>
-              <td>Delhi</td>
-              <td>1234</td>
-              <td>cluster-a-32</td>
-            </tr> */}
+               
               </tbody>
 
-            </table>
+            </table> */}
+            <div className="container">
+              <div className="row gy-4">
+              {
+                filterWearHouse.map((item,index)=>{
+                  return <div className="col-lg-3" key={index}>
+                  <div className="listCard">
+                    <div className="img-div">
+                      <img src={item.img} alt="" />
+                    </div>
+
+                    <div className="textDiv">
+                      <h3> <FaWarehouse />{item.name}</h3>
+                      <p><ImLocation2/> {item.city}</p>
+                    </div>
+                    <div className="textShowOverlay">
+                    <h4>{item.name}</h4>
+                    <p>City:{item.city}</p>
+                      <p>Cluster: {item.cluster}</p>
+                      <p>Space Avability :{item.space_available}</p>
+                      <button onClick={()=>navigate(`/warehouse/${item.id}`)}>Details</button>
+                    </div>
+                  </div>
+                </div>
+                })
+              }
+                
+              </div>
+            </div>
           </div>
+        </div>
+        <div className="custom_fieldBtn">
+          <button>Add field</button>
         </div>
       </div>
     </>

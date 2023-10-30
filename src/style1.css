@@ -1,0 +1,71 @@
+.wearhouseList {
+  margin-top: 70px;
+}
+
+.listCard {
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 100%;
+}
+.listCard .img-div {
+  width: 100%;
+  height: 400px;
+}
+.listCard .img-div img {
+  width: 100%;
+  height: 100%;
+}
+.listCard .textDiv {
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #000 100%);
+  width: 100%;
+  left: 0;
+  bottom: 0px;
+  color: #fff;
+  padding-left: 15px;
+}
+.listCard .textDiv h3, .listCard .textDiv p {
+  display: flex;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+  align-items: center;
+}
+.listCard .textDiv p {
+  font-size: 18px;
+}
+.listCard .textShowOverlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4549019608);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  color: #fff;
+  text-align: center;
+  padding-top: 30px;
+}
+.listCard .textShowOverlay h4 {
+  font-size: 28px;
+}
+.listCard .textShowOverlay p {
+  font-size: 20px;
+}
+.listCard .textShowOverlay button {
+  padding: 10px 30px;
+  background-color: chocolate;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.listCard:hover .textShowOverlay {
+  display: block;
+  cursor: pointer;
+}
+.listCard:hover .textDiv {
+  display: none;
+}/*# sourceMappingURL=style1.css.map */

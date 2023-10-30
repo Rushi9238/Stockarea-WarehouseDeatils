@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +16,7 @@
   overflow: scroll;
   background-color: lightslategrey;
 }
-.header{
+.header {
   background-color: lightslategrey;
 }
 .mainDiv .top {
@@ -27,7 +29,7 @@
 .mainDiv .top .adminSide {
   display: flex;
   -moz-column-gap: 8px;
-       column-gap: 8px;
+  column-gap: 8px;
 }
 .mainDiv .top .adminSide .userIcons {
   font-size: 40px;
@@ -60,7 +62,7 @@
   /* border: 1px solid red; */
   display: flex;
   -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .mainDiv .filterDiv .selctetBox select {
   padding: 10px 20px;
@@ -105,6 +107,21 @@
   background-color: rgb(114, 176, 193);
   cursor: pointer;
 }
+.custom_fieldBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+.custom_fieldBtn button {
+  padding: 10px 30px;
+  background-color: chocolate;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+
 
 .detailsDiv {
   /* border: 2px solid red; */
@@ -126,7 +143,7 @@
 .detailsDiv .top .adminSide {
   display: flex;
   -moz-column-gap: 8px;
-       column-gap: 8px;
+  column-gap: 8px;
 }
 .detailsDiv .top .adminSide .userIcons {
   font-size: 40px;
@@ -140,7 +157,6 @@
   margin-top: 60px;
   border-radius: 12px;
   padding: 20px;
-
 }
 .detailsDiv .details .title {
   font-size: 28px;
@@ -187,13 +203,11 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  
-  
 }
-.editDetails .inputBoxWrapper .inputBox label{
+.editDetails .inputBoxWrapper .inputBox label {
   font-size: 20px;
 }
-.editDetails .inputBoxWrapper .inputBox span{
+.editDetails .inputBoxWrapper .inputBox span {
   font-size: 20px;
 }
 .editDetails .inputBoxWrapper .inputBox .inputText {
@@ -201,14 +215,14 @@
   font-size: 20px;
   padding-left: 10px;
 }
-.editDetails .inputBoxWrapper .inputBox .inputNumber{
+.editDetails .inputBoxWrapper .inputBox .inputNumber {
   appearance: textfield;
 }
 .editDetails .inputBoxWrapper .inputBox .radioDiv {
   transform: translateX(-120px);
   display: flex;
   -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .editDetails .submitBtn {
   text-align: center;
@@ -222,15 +236,15 @@
   color: #fff;
   border: none;
   outline: none;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    appearance: none; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
