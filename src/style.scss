@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+*::-webkit-scrollbar {
+    display: none;
+
+}
+
+.mainDiv {
+    border: 2px solid red;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+
+    .top {
+        border: 2px solid green;
+        padding: 10px 10px;
+
+        .logo {
+            font-size: 32px;
+        }
+
+        .adminSide {
+            display: flex;
+            column-gap: 8px;
+
+            .userIcons {
+                font-size: 40px;
+            }
+
+            p {
+                font-size: 28px;
+            }
+        }
+    }
+
+    .filterDiv {
+        border: 2px solid blue;
+
+        .inputbox {
+            border: 1px solid red;
+
+            input {
+                padding: 10px 20px;
+                width: 340px;
+                border: none;
+                outline: none;
+
+            }
+
+            button {
+                border: none;
+                background-color: transparent;
+                outline: none;
+                font-size: 29px;
+            }
+        }
+
+        .selctetBox {
+            border: 1px solid red;
+            display: flex;
+            column-gap: 10px;
+
+            select {
+                padding: 10px 20px;
+                outline: none;
+                height: 100%;
+            }
+        }
+    }
+
+    .wearhouseList {
+        table {
+            width: 100%;
+            border: 1px solid;
+
+            thead
+            th {
+                border: 1px solid red;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 20px;
+            }
+
+            table th,
+            td {
+                padding: 10px;
+                text-align: left;
+            }
+
+            th {
+                font-size: 0.9rem;
+                background-color: #daeef1;
+                color: black;
+                font-weight: 500;
+            }
+
+            tbody a {
+                text-decoration: none;
+
+            }
+            tbody tr td{
+                text-align: center;
+            }
+            tbody tr:nth-child(even) {
+                background-color: #daeef1;
+            }
+
+
+            tbody tr:nth-child(odd) {
+                background-color: white;
+            }
+
+            tbody tr:hover {
+                background-color: rgb(114, 176, 193);
+                cursor: pointer;
+
+            }
+        }
+    }
+}
+.detailsDiv{
+    border: 2px solid red;
+    width: 100%;
+    height: 100vh;
+    
+    .top {
+        border: 2px solid green;
+        padding: 10px 10px;
+
+        .logo {
+            font-size: 32px;
+        }
+
+        .adminSide {
+            display: flex;
+            column-gap: 8px;
+
+            .userIcons {
+                font-size: 40px;
+            }
+
+            p {
+                font-size: 28px;
+            }
+        }
+    }
+    .details{
+        border: 2px solid blue;
+        .title{
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+        .commonClass{
+            font-size: 22px;
+            padding:0 40px;
+            margin-bottom: 20px;
+        }
+        .l-details{
+            display: flex;
+            justify-content: space-between;
+           
+        }
+        .editButton{
+            text-align: end;
+            button{
+                padding: 10px 30px;
+                font-size: 18px;
+                font-weight: bold;
+
+            }
+        }
+    }
+}
+
+.editDetails{
+    border: 2px solid red;
+    .edit-head{
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-align: center;
+
+    }
+    .inputBoxWrapper{
+        border: 2px solid blue;
+        .inputBox{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            .inputText{
+                transform: translateX(-60px);
+            }
+            .radioDiv{
+                // border: 2px solid red;
+                transform: translateX(-140px);
+                display: flex;
+                column-gap: 10px;
+            }
+
+        }
+    }
+    .submitBtn{
+        text-align: center;
+        button{
+            padding: 10px 40px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 20px;
+
+        }
+
+    }
+}
