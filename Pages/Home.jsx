@@ -108,33 +108,7 @@ const Home = () => {
 
           </div>
           <div className="wearhouseList">
-            {/* <table>
-              <thead className=''>
-                <tr>
-                  <th>
-                    Wearhouse Name
-                  </th>
-                  <th>City</th>
-                  <th>Space Available</th>
-                  <th>Cluster</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  filterWearHouse.map((item,index) => {
-                    return <tr key={index} onClick={()=>navigate(`/warehouse/${item.id}`)}>
-                      <td>{item.name}</td>
-                      <td>{item.city}</td>
-                      <td>{item.space_available}</td>
-                      <td>{item.cluster}</td>
-                    </tr>
-                  })
-                }
-
-               
-              </tbody>
-
-            </table> */}
+          
             <div className="container">
               <div className="row gy-4">
               {
