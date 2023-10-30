@@ -10,7 +10,7 @@ const HouseDetails = () => {
   const { wearhouse } = useSelector((select) => select.dataSlice)
   const [editModal, setEditModal] = useState(false)
     const {id}=useParams()
-    console.log(id);
+    // console.log(id);
     const houseDetails=wearhouse.filter((item)=>{
       return item.id==id
     })
@@ -20,7 +20,7 @@ const HouseDetails = () => {
       if(SingleHouse.name!=='' && SingleHouse.city!=='' && SingleHouse.cluster!=='' && SingleHouse.space_available!==''){
         console.log(SingleHouse);
         console.log('hello')
-        console.log('hello')
+        
       }
       else{
         console.log('bye')
